@@ -38,6 +38,16 @@ export default () =>
             ])
         ),
         S.listItem()
+        .title('All Posts')
+        .child(
+            S.documentList()
+            .title('All Posts')
+            .filter('_type == "post"')
+        ),
+        S.divider(),
+        ...S.documentTypeListItems().filter(item => !['post','siteSettings', 'colors', 'navigation'].includes(item.getId())),
+        S.divider(),
+        S.listItem()
         .title('Settings')
         .child(
             S.list()
@@ -65,8 +75,6 @@ export default () =>
                       .documentId('navigation')
                   )
             ])
-        ),
-        S.divider(),
-      ...S.documentTypeListItems().filter(item => !['siteSettings', 'colors', 'navigation'].includes(item.getId()))
+        )
     ]
 )
