@@ -6,7 +6,7 @@
   /* Brand colors */
   --brand-primary: #869D96;
   --brand-primary--inverted: #ffffff;
-  --brand-secondary: #C4F1BE;
+  --brand-secondary: #869D96;
   --brand-secondary--inverted: #525B76;
 
    /* Typography */
@@ -15,6 +15,6 @@
    --text-color: var(--brand-secondary--inverted);
 
    /* Main Navigation */
-  --main-navigation-color: #525B76;
-  --main-navigation-color--inverted: #C4F1BE;
+  --main-navigation-color: #c9e9d7;
+  --main-navigation-color--inverted: #525f5b;
 }
