@@ -9,11 +9,33 @@ export default () =>
         S.listItem()
         .title('Settings')
         .child(
-            S.document()
-            .schemaType('siteSettings')
-            .documentId('siteSettings')
+            S.list()
+            .title('Settings Documents')
+            .items([
+                S.listItem()
+                .title('Metadata')
+                .child(
+                    S.document()
+                    .schemaType('siteSettings')
+                    .documentId('siteSettings')
+                ),
+                S.listItem()
+                .title('Site Colors')
+                .child(
+                    S.document()
+                    .schemaType('colors')
+                    .documentId('colors')
+                ),
+                S.listItem()
+                  .title('Main Navigation')
+                  .child(
+                    S.document()
+                      .schemaType('navigation')
+                      .documentId('navigation')
+                  )
+            ])
         ),
         S.divider(),
-      ...S.documentTypeListItems().filter(item => !['siteSettings'].includes(item.getId()))
+      ...S.documentTypeListItems().filter(item => !['siteSettings', 'colors', 'navigation'].includes(item.getId()))
     ]
 )
