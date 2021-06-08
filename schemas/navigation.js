@@ -1,5 +1,5 @@
 export default {
-    name: 'main navigation',
+    name: 'navigation',
     title: 'Main Navigation',
     type: 'document',
     fields: [

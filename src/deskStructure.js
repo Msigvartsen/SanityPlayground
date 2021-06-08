@@ -4,8 +4,39 @@ import S from '@sanity/desk-tool/structure-builder'
 export default () =>
   S.list()
     .title('Base')
-    .items(
-        [
+    .items([
+        S.listItem()
+        .title('Filtered Posts')
+        .child(
+            S.list()
+            .title('Filters')
+            .items([
+                S.listItem()
+                .title('Posts By Category')
+                .child(
+                    S.documentTypeList('category')
+                    .title('Posts by Category')
+                    .child(categoryId => 
+                        S.documentList()
+                        .title('Posts')
+                        .filter('_type == "post" && $categoryId in categories[]._ref')
+                        .params({categoryId})
+                    )
+                ),
+                S.listItem()
+                .title('Posts By Author')
+                .child(
+                    S.documentTypeList('author')
+                    .title('Posts By Authors')
+                    .child(authorId => 
+                        S.documentList()
+                        .title('Posts')
+                        .filter('_type == "post" && $authorId == author._ref')
+                        .params({authorId})
+                        )
+                )
+            ])
+        ),
         S.listItem()
         .title('Settings')
         .child(
