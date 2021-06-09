@@ -1,3 +1,4 @@
+import EmojiString from '../src/EmojiString'
 import { FcDocument } from "react-icons/fc"
 
 export default {
@@ -10,6 +11,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      inputComponent: EmojiString
     },
     {
       name: 'slug',

@@ -4,7 +4,7 @@ import { TextInput, Flex, Text, Box, Card } from "@sanity/ui";
 import PatchEvent, { set, unset } from "@sanity/form-builder/PatchEvent";
 import { useId } from "@reach/auto-id";
 
-const TwitterURL = React.forwardRef((props, ref) => {
+const EmojiString = React.forwardRef((props, ref) => {
   const {
     type,
     value,
@@ -21,7 +21,13 @@ const TwitterURL = React.forwardRef((props, ref) => {
   const handleChange = React.useCallback(
     (event) => {
       const inputValue = event.currentTarget.value;
-      onChange(PatchEvent.from(inputValue ? set(inputValue) : unset()));
+      var num = Math.floor(Math.random() * (700 - 600) + 600);
+      let emojiCode = String.fromCodePoint('0X1F'.concat(num));
+      let updatedValue = inputValue.replace(
+        /[aeiou]/gi,
+        emojiCode
+      );
+      onChange(PatchEvent.from(inputValue ? set(updatedValue) : unset()));
     },
     [onChange]
   );
@@ -38,11 +44,6 @@ const TwitterURL = React.forwardRef((props, ref) => {
       inputId={inputId}
     >
       <Flex>
-        <Flex as={Card} paddingX={3} border borderRight={false} align="center">
-          <Text size={1} muted>
-            {type.options?.prepend}
-          </Text>
-        </Flex>
         <Box flex={1}>
           <TextInput
             id={inputId}
@@ -59,4 +60,4 @@ const TwitterURL = React.forwardRef((props, ref) => {
   );
 });
 
-export default TwitterURL;
+export default EmojiString;
