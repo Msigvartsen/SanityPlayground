@@ -1,3 +1,4 @@
+import TwitterUrl from '../src/TwitterUrl'
 export default {
   name: 'author',
   title: 'Author',
@@ -16,6 +17,12 @@ export default {
         source: 'name',
         maxLength: 96,
       },
+    },
+    {
+      name: 'twitter',
+      title: 'TwitterUrl',
+      type: 'url',
+      inputComponent: TwitterUrl
     },
     {
       name: 'image',
