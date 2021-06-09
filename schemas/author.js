@@ -1,8 +1,10 @@
 import TwitterUrl from '../src/TwitterUrl'
+import { FcVoicePresentation } from "react-icons/fc"
 export default {
   name: 'author',
   title: 'Author',
   type: 'document',
+  icon: FcVoicePresentation,
   fields: [
     {
       name: 'name',

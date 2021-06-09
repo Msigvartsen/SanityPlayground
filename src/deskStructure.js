@@ -1,5 +1,6 @@
 // /deskStructure.js
 import S from '@sanity/desk-tool/structure-builder'
+import  * as Icons from "react-icons/fc"
 
 export default () =>
   S.list()
@@ -7,12 +8,14 @@ export default () =>
     .items([
         S.listItem()
         .title('Filtered Posts')
+        .icon(Icons.FcFeedIn)
         .child(
             S.list()
             .title('Filters')
             .items([
                 S.listItem()
                 .title('Posts By Category')
+                .icon(Icons.FcTimeline)
                 .child(
                     S.documentTypeList('category')
                     .title('Posts by Category')
@@ -25,6 +28,7 @@ export default () =>
                 ),
                 S.listItem()
                 .title('Posts By Author')
+                .icon(Icons.FcVoicePresentation)
                 .child(
                     S.documentTypeList('author')
                     .title('Posts By Authors')
@@ -39,6 +43,7 @@ export default () =>
         ),
         S.listItem()
         .title('All Posts')
+        .icon(Icons.FcEnteringHeavenAlive)
         .child(
             S.documentList()
             .title('All Posts')
@@ -49,6 +54,7 @@ export default () =>
         S.divider(),
         S.listItem()
         .title('Settings')
+        .icon(Icons.FcEngineering)
         .child(
             S.list()
             .title('Settings Documents')
