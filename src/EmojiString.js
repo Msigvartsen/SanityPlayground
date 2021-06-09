@@ -22,11 +22,8 @@ const EmojiString = React.forwardRef((props, ref) => {
     (event) => {
       const inputValue = event.currentTarget.value;
       var num = Math.floor(Math.random() * (700 - 600) + 600);
-      let emojiCode = String.fromCodePoint('0X1F'.concat(num));
-      let updatedValue = inputValue.replace(
-        /[aeiou]/gi,
-        emojiCode
-      );
+      let emojiCode = String.fromCodePoint("0X1F".concat(num));
+      let updatedValue = inputValue.replace(/[aeiou]/gi, emojiCode);
       onChange(PatchEvent.from(inputValue ? set(updatedValue) : unset()));
     },
     [onChange]
@@ -43,19 +40,19 @@ const EmojiString = React.forwardRef((props, ref) => {
       __unstable_presence={presence}
       inputId={inputId}
     >
-      <Flex>
-        <Box flex={1}>
-          <TextInput
-            id={inputId}
-            value={value}
-            readOnly={readOnly}
-            placeholder={placeholder}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onChange={handleChange}
-          />
-        </Box>
-      </Flex>
+      <Box flex={1} paddingY={2}>
+        <TextInput
+          id={inputId}
+          value={value}
+          readOnly={readOnly}
+          placeholder={placeholder}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={handleChange}
+        />
+      </Box>
+    
+      <Text size={1} muted>Most annoying text field ever</Text>
     </FormField>
   );
 });
