@@ -20,8 +20,9 @@ const TwitterURL = React.forwardRef((props, ref) => {
 
   const handleChange = React.useCallback(
     (event) => {
-      const inputValue = event.currentTarget.value;
-      onChange(PatchEvent.from(inputValue ? set(inputValue) : unset()));
+      const inputValue = event.currentTarget.value
+      var updatedInput = inputValue.replace('cherry', String.fromCodePoint(0x1F352))
+      onChange(PatchEvent.from(inputValue ? set(updatedInput) : unset()));
     },
     [onChange]
   );
@@ -40,7 +41,7 @@ const TwitterURL = React.forwardRef((props, ref) => {
       <Flex>
         <Flex as={Card} paddingX={3} border borderRight={false} align="center">
           <Text size={1} muted>
-            {type.options?.prepend}
+            {type.options?.prepend}{String.fromCodePoint(0x1F352)} 
           </Text>
         </Flex>
         <Box flex={1}>
