@@ -1,6 +1,6 @@
 import React from "react";
 import { FormField } from "@sanity/base/components";
-import { TextInput, Flex, Text } from "@sanity/ui";
+import { TextInput, Flex, Text, Box, Card } from "@sanity/ui";
 import PatchEvent, { set, unset } from "@sanity/form-builder/PatchEvent";
 import { useId } from "@reach/auto-id";
 
@@ -38,7 +38,11 @@ const TwitterURL = React.forwardRef((props, ref) => {
       inputId={inputId}
     >
       <Flex>
-        <Text>https://twitter.com/</Text>
+        <Flex as={Card} paddingX={3} border borderRight={false} align="center">
+          <Text size={1} muted>
+            {type.options?.prepend}
+          </Text>
+        </Flex>
         <Box flex={1}>
           <TextInput
             id={inputId}

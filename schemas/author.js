@@ -22,7 +22,10 @@ export default {
       name: 'twitter',
       title: 'TwitterUrl',
       type: 'url',
-      inputComponent: TwitterUrl
+      inputComponent: TwitterUrl,
+      options: {
+        prepend: 'https://twitter.com/'
+      }
     },
     {
       name: 'image',
