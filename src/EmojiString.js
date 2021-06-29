@@ -1,6 +1,6 @@
 import React from "react";
 import { FormField } from "@sanity/base/components";
-import { TextInput, Flex, Text, Box, Card } from "@sanity/ui";
+import { TextInput, Text, Box } from "@sanity/ui";
 import PatchEvent, { set, unset } from "@sanity/form-builder/PatchEvent";
 import { useId } from "@reach/auto-id";
 
@@ -20,16 +20,28 @@ const EmojiString = React.forwardRef((props, ref) => {
 
   const handleChange = React.useCallback(
     (event) => {
-      const inputValue = event.currentTarget.value;
-      var num = Math.floor(Math.random() * (700 - 600) + 600);
-      let emojiCode = String.fromCodePoint("0X1F".concat(num));
-      let updatedValue = inputValue.replace(/[aeiou]/gi, emojiCode);
+      let inputValue = event.currentTarget.value;
+
+      if(/[aeiou]/gi.test(inputValue))
+      {
+        let max = emojiList.length;        
+        let num = Math.floor(Math.random() * max);
+        let code = emojiList[num].codePoint;
+        let emojiCode = String.fromCodePoint("0X".concat(code));
+        // let emojiCode = String.fromCodePoint("0X1F".concat(num));
+        inputValue = inputValue.replace(/[aeiou]/gi, emojiCode);
+      }
+
       onChange(PatchEvent.from(inputValue ? set(updatedValue) : unset()));
     },
     [onChange]
   );
 
   const inputId = useId();
+
+    let emojiList = fetch('https://emoji-api.com/emojis?access_key=6f9817ad58453bcc1d35cbdd5da305ff4e0ee998')
+    .then(response => response.json());
+
 
   return (
     <FormField

@@ -1,4 +1,4 @@
-import TwitterUrl from "../src/TwitterUrl";
+import TwitterUrl from "../../src/TwitterUrl";
 import { FcVoicePresentation } from "react-icons/fc";
 export default {
   name: "author",

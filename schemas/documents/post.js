@@ -1,4 +1,4 @@
-import EmojiString from '../src/EmojiString'
+import EmojiString from '../../src/EmojiString'
 import { FcDocument } from "react-icons/fc"
 
 export default {
