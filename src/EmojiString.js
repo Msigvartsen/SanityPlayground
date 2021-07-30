@@ -24,24 +24,18 @@ const EmojiString = React.forwardRef((props, ref) => {
 
       if(/[aeiou]/gi.test(inputValue))
       {
-        let max = emojiList.length;        
+        let max = 700;        
         let num = Math.floor(Math.random() * max);
-        let code = emojiList[num].codePoint;
-        let emojiCode = String.fromCodePoint("0X".concat(code));
-        // let emojiCode = String.fromCodePoint("0X1F".concat(num));
+        let emojiCode = String.fromCodePoint("0X1F".concat(num));
         inputValue = inputValue.replace(/[aeiou]/gi, emojiCode);
       }
 
-      onChange(PatchEvent.from(inputValue ? set(updatedValue) : unset()));
+      onChange(PatchEvent.from(inputValue ? set(inputValue) : unset()));
     },
     [onChange]
   );
 
   const inputId = useId();
-
-    let emojiList = fetch('https://emoji-api.com/emojis?access_key=6f9817ad58453bcc1d35cbdd5da305ff4e0ee998')
-    .then(response => response.json());
-
 
   return (
     <FormField
