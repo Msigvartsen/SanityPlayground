@@ -10,8 +10,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
-      inputComponent: EmojiString
+      type: 'string'
     },
     {
       name: 'slug',
