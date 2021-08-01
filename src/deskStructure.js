@@ -1,6 +1,7 @@
 // /deskStructure.js
 import S from '@sanity/desk-tool/structure-builder'
 import  * as Icons from "react-icons/fc"
+import PreviewIFrame from './previewIFrame'
 
 export default () =>
   S.list()
@@ -46,8 +47,14 @@ export default () =>
         .icon(Icons.FcEnteringHeavenAlive)
         .child(
             S.documentList()
-            .title('All Posts')
-            .filter('_type == "post"')
+                .title('All Posts')
+                .filter('_type == "post"')
+                .child((documentId) =>
+                S.document()
+                    .documentId(documentId)
+                    .schemaType('post')
+                    .views([S.view.form(), PreviewIFrame()])
+            )
         ),
         S.divider(),
         ...S.documentTypeListItems().filter(item => !['post','siteSettings', 'colors', 'navigation'].includes(item.getId())),
