@@ -30,10 +30,7 @@ export default {
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      type: 'mainImage',
     },
     {
       name: 'categories',
@@ -57,7 +54,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      media: 'mainImage.image',
     },
     prepare(selection) {
       const {author} = selection
