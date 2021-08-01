@@ -6,11 +6,20 @@ export default {
   title: 'Post',
   type: 'document',
   icon: FcDocument,
+  initialValue: () => ({
+    featured: false,
+    publishedAt: new Date().toISOString()
+  }),
   fields: [
     {
       name: 'title',
       title: 'Title',
       type: 'string'
+    },
+    {
+      name: 'featured',
+      title: 'Featured',
+      type: 'boolean',
     },
     {
       name: 'slug',
