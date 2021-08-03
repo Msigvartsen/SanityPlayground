@@ -2,7 +2,8 @@ export default {
   name: "landingPage",
   title: "Landing page",
   type: "document",
-  fields: [
+  icon: () => "📟",
+    fields: [
     {
       name: "title",
       title: "Title",
