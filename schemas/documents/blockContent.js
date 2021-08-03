@@ -40,7 +40,7 @@ export default {
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            name: 'link',
+            name: 'externalLink',
             type: 'object',
             title: 'External link',
             fields: [

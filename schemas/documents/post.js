@@ -1,14 +1,22 @@
 import EmojiString from '../../src/EmojiString'
 import { FcDocument } from "react-icons/fc"
+import client from 'part:@sanity/base/client'
+
 
 export default {
   name: 'post',
   title: 'Post',
   type: 'document',
   icon: FcDocument,
-  initialValue: () => ({
+  initialValue: async () => ({
     featured: false,
-    publishedAt: new Date().toISOString()
+    publishedAt: new Date().toISOString(),
+    // categories: await client.fetch(`//groq 
+    // *[_type == "category"] {
+    //   "_type: reference",
+    //   "_ref": _id,
+    // }
+    // `)
   }),
   fields: [
     {
@@ -56,6 +64,11 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'geopoint',
     },
   ],
 
