@@ -26,6 +26,7 @@ const PreviewIFrame = () =>
         </React.Fragment>
       )
     })
+    .icon( () => '🌐')
     .title('Web preview')
 
 export default PreviewIFrame

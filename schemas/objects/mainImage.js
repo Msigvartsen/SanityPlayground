@@ -20,6 +20,6 @@ export default {
             name: 'alternativeText',
             title: 'Alternative Text',
             type: 'string',
-        },
-    ],
+        }
+    ]
 }

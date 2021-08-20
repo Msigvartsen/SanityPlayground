@@ -8,6 +8,11 @@
  *    type: 'blockContent'
  *  }
  */
+ import React from 'react'
+ const highlightRender = props => (
+  <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
+)
+
 export default {
   title: 'Block Content',
   name: 'blockContent',
@@ -34,8 +39,19 @@ export default {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          { "title": "Strong", "value": "strong" },
+          { "title": "Emphasis", "value": "em" },
+          { "title": "Code", "value": "code" },
+          { "title": "Underline", "value": "underline" },
+          { "title": "Strike", "value": "strike-through" },
+          {
+            title: 'Highlight',
+            value: 'highlight',
+            blockEditor: {
+              icon: () => '⚡',
+              render: highlightRender
+            }
+          }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -43,6 +59,7 @@ export default {
             name: 'externalLink',
             type: 'object',
             title: 'External link',
+            icon: () => '🌍',
             fields: [
               {
                 name: 'href',
@@ -61,6 +78,7 @@ export default {
             name: 'internalLink',
             type: 'object',
             title: 'Internal link',
+            icon: () => '🏠',
             fields: [
               {
                 name: 'reference',
@@ -80,9 +98,9 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      type: 'image',
-      options: {hotspot: true},
+      title: 'Category',
+      type: 'category'
     },
-    { type: 'author' }
-  ],
+    {type: 'mainImage'}
+  ]
 }
