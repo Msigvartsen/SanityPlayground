@@ -13,8 +13,9 @@ import siteSettings from './siteSettings'
 import colors from './documents/colors'
 import navigation from './documents/navigation'
 import landingPage from './documents/landingPage'
-
+import miniBanners from './documents/miniBanners'
 import mainImage from './objects/mainImage'
+import frontpage from './documents/frontpage'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -34,6 +35,8 @@ export default createSchema({
     navigation,
     colors,
     landingPage,
-    mainImage
+    mainImage,
+    miniBanners,
+    frontpage
   ]),
 })

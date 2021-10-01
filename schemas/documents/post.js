@@ -18,16 +18,25 @@ export default {
     // }
     // `)
   }),
+  fieldsets: [
+    {
+      name: 'stuff',
+      title: 'Stuff',
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      fieldset: 'stuff'
     },
     {
       name: 'featured',
       title: 'Featured',
       type: 'boolean',
+      fieldset: 'stuff'
     },
     {
       name: 'slug',
