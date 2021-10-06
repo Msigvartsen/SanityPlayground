@@ -56,8 +56,33 @@ export default () =>
                     .views([S.view.form(), PreviewIFrame()])
             )
         ),
+        S.listItem()
+        .title('Minibanners')
+        .icon(() => '🤷‍♂️')
+        .child(
+            S.list()
+            .title('Filters')
+            .items([
+                S.listItem()
+                .title('Unpublished')
+                .icon(() => '🛑')
+                .child(
+                    S.documentList()
+                    .title('Banners')
+                    .filter('_type == "miniBanner" && _id in path("drafts.**")')
+                ),
+                S.listItem()
+                .title('Published')
+                .icon(() => '✔')
+                .child(
+                    S.documentList()
+                    .title('Banners')
+                    .filter('_type == "miniBanner" && !(_id in path("drafts.**"))')
+                )
+            ])
+        ),
         S.divider(),
-        ...S.documentTypeListItems().filter(item => !['post','siteSettings', 'colors', 'navigation'].includes(item.getId())),
+        ...S.documentTypeListItems().filter(item => !['post','siteSettings', 'colors', 'navigation', 'miniBanner'].includes(item.getId())),
         S.divider(),
         S.listItem()
         .title('Settings')

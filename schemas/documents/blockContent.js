@@ -71,7 +71,7 @@ export default {
                 name: 'blank',
                 description: 'Read https://css-tricks.com/use-target_blank/',
                 type: 'boolean'
-              }
+              },
             ]
           },
           {
